@@ -4,6 +4,7 @@ import Home from './Components/Home'
 import Contact from "./Components/Contact";
 import About from "./Components/About";
 import NotFound from "./Components/NotFound";
+import BlogItemDetails from "./Components/BlogItemDetails";
 
 const App = () => {
   return (
@@ -14,7 +15,8 @@ const App = () => {
       <Routes>
         <Route path = "/" element = {<Home/>} /> 
         <Route path="/about" element = {<About/>} />
-        <Route path = "/contact" element = {<Contact/>} />   
+        <Route path = "/contact" element = {<Contact/>} />
+        <Route path = "/blogs/:id" element = {<BlogItemDetails/>} />
         <Route path="*" element={<NotFound/>} />
       </Routes>
       </BrowserRouter>
