@@ -1,25 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 
-function Clock() {
-  const [date, setDate] = useState(new Date())
 
-  useEffect(() => {
-    const timerID = setInterval(() => {
-      setDate(new Date())
-    }, 1000)
 
-    return () => {
-      clearInterval(timerID)
-    }
-  }, [])
-
-  return (
-    <div className="clock-container">
-      <h1 className="heading">Clock Working</h1>
-      <p className="time">{date.toLocaleTimeString()}</p>
-    </div>
+const App = () => {
+  return(
+    <>
+    <h1>Hello World!</h1>
+      <p>This is a paragraph.</p>
+    </>
   )
 }
-
-export default Clock
+export default App;

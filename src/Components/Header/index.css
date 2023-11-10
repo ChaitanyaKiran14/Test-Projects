@@ -1,0 +1,49 @@
+/* Reset some default styles for consistency */
+body, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the navigation bar */
+.navbar {
+    background-color: #333; /* Background color */
+    color: #fff; /* Text color */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* Style the logo */
+.navbar-logo a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5rem; /* Adjust the font size as needed */
+    font-weight: bold;
+}
+
+/* Style the menu items */
+.navbar-menu {
+    list-style: none;
+    display: flex;
+}
+
+.navbar-menu li {
+    margin-right: 20px; /* Adjust the spacing between menu items */
+}
+
+.navbar-menu li:last-child {
+    margin-right: 0; /* Remove right margin for the last menu item */
+}
+
+/* Style the links within the menu */
+.navbar-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Change link color on hover */
+.navbar-menu a:hover {
+    color: #ff9900; /* Adjust the hover color as needed */
+}
