@@ -16,7 +16,7 @@ function Clock() {
 
   return (
     <div className="clock-container">
-      <h1 className="heading">Clock</h1>
+      <h1 className="heading">Clock Working</h1>
       <p className="time">{date.toLocaleTimeString()}</p>
     </div>
   )
