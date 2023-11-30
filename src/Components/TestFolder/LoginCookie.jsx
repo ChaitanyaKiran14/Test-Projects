@@ -94,6 +94,10 @@ const LoginForm = () => {
     }
   }, [cookies.jwt_token, history]);
 
+  //The array [cookies.jwt_token, history] passed as the second argument to useEffect is known as the dependency array. 
+  //This array specifies the dependencies that the effect relies on.
+  // The useEffect hook will re-run the effect whenever any of the dependencies change.
+
   return (
     <div className="login-form-container">
       <img
