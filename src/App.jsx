@@ -6,6 +6,8 @@ import About from "./Components/About";
 import NotFound from "./Components/NotFound";
 import BlogItemDetails from "./Components/BlogItemDetails";
 
+//any route that matches the pattern "/blogs/:id" will render the BlogItemDetails
+
 const App = () => {
   return (
     <div>
