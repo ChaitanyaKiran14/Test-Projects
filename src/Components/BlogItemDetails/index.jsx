@@ -3,6 +3,9 @@ import { useParams } from 'react-router-dom';
 
 const BlogItemDetails = () => {
     const { id } = useParams();
+    //you can get it by const {match} = this.props  , const {params} = this.match ,  const {id} = params
+
+
     const [apiData , setApiData] = useState([])
 
     const options = {
