@@ -9,19 +9,21 @@ const BlogItem = (props) => {
 
     return(
         <Link to = {`/blogs/${id}`}  className="item-link">
-      <div className="item-container">
-        <img className="item-image" src={imageUrl} alt={`item${id}`} />
-        <div className="item-info">
-          <p className="item-topic">{topic}</p>
-          <h1 className="item-title">{title}</h1>
-          <div className="author-info">
-            <img className="avatar" src={avatarUrl} alt={`avatar${id}`} />
-            <p className="author-name">{author}</p>
-            <hr/>
-            <hr/>
+          <div className="item-container">
+            <img className="item-image" src={imageUrl} alt={`item${id}`} />
+            <div className="item-info">
+              <p className="item-topic">{topic}</p>
+              <h1 className="item-title">{title}</h1>
+
+              <div className="author-info">
+                <img className="avatar" src={avatarUrl} alt={`avatar${id}`} />   
+                <p className="author-name">{author}</p>
+                <hr/>
+                <hr/>
+              </div>
+              
+            </div>
           </div>
-        </div>
-      </div>
     </Link>
 
     )

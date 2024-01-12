@@ -6,12 +6,15 @@ import About from "./Components/About";
 import NotFound from "./Components/NotFound";
 import BlogItemDetails from "./Components/BlogItemDetails";
 
+import LoginForm from "./Components/TestFolder/LoginCookie";
 //any route that matches the pattern "/blogs/:id" will render the BlogItemDetails
 
 const App = () => {
   return (
     <div>
-      <BrowserRouter>
+      <LoginForm/>
+
+      {/* <BrowserRouter>
       <Header />
       
       <Routes>
@@ -22,6 +25,7 @@ const App = () => {
         <Route path="*" element={<NotFound/>} />
       </Routes>
       </BrowserRouter>
+      */}
       
     </div>
   );

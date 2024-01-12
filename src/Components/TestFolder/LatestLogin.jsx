@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
-
+import axios from 'axios';
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
@@ -9,7 +9,7 @@ const LoginForm = () => {
   const [showSubmitError, setShowSubmitError] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const [cookies, setCookie] = useCookies(['jwt_token']);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const onChangeUsername = event => {
     setUsername(event.target.value);
@@ -23,7 +23,7 @@ const LoginForm = () => {
     setCookie('jwt_token', jwtToken, {
       expires: 30,
     });
-    history.replace('/');
+    navigate('/');
   };
 
   const onSubmitFailure = errorMsg => {
@@ -35,24 +35,27 @@ const LoginForm = () => {
     event.preventDefault();
     const userDetails = { username, password };
     const url = 'https://apis.ccbp.in/login';
-    const options = {
-      method: 'POST',
-      body: JSON.stringify(userDetails),
-    };
 
     try {
-      const response = await fetch(url, options);
-      const data = await response.json();
+      const response = await axios.post(url, userDetails);
 
-      if (response.ok === true) {
-        onSubmitSuccess(data.jwt_token);
+      if (response.data && response.status === 200) {
+        onSubmitSuccess(response.data.jwt_token);
       } else {
-        onSubmitFailure(data.error_msg);
+        onSubmitFailure(response.data.error_msg);
       }
     } catch (error) {
       console.error('Error submitting form:', error);
     }
   };
+
+  useEffect(() => {
+    const jwtToken = cookies.jwt_token;
+
+    if (jwtToken !== undefined) {
+      navigate('/');
+    }
+  }, [cookies.jwt_token, navigate]);
 
   const renderPasswordField = () => (
     <>
@@ -85,18 +88,6 @@ const LoginForm = () => {
       />
     </>
   );
-
-  useEffect(() => {
-    const jwtToken = cookies.jwt_token;
-
-    if (jwtToken !== undefined) {
-      history.replace('/');
-    }
-  }, [cookies.jwt_token, history]);
-
-  //The array [cookies.jwt_token, history] passed as the second argument to useEffect is known as the dependency array. 
-  //This array specifies the dependencies that the effect relies on.
-  // The useEffect hook will re-run the effect whenever any of the dependencies change.
 
   return (
     <div className="login-form-container">

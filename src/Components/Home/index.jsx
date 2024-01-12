@@ -30,6 +30,7 @@ const Home = () => {
                     title: each.title,
                     topic: each.topic // Change this to "each.topic"
                 }));
+                console.log(modifiedData)
 
                 setApiData(modifiedData);
                 setSpin(false);
