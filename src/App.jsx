@@ -1,5 +1,6 @@
 import Top from "./Components/Topportion"
 import Bottom  from "./Components/BottomPortion"
+import './App.css'
 
 const App = () => {
 
