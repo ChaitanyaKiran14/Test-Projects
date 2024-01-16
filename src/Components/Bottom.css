@@ -1,0 +1,11 @@
+.main{
+    display: flex;
+    justify-content: space-around;
+
+}
+.heads{
+    color: grey;
+}
+.min{
+    text-decoration: underline;
+}
